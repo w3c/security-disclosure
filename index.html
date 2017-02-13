@@ -30,7 +30,7 @@
     },{
       key: 'Mailing list',
       data: [{
-        value: 'spec-prod@w3.org',
+        value: 'public-security-disclosure@w3.org',
         href: 'https://lists.w3.org/Archives/Public/public-security-disclosure/'
       }]
     }]
@@ -42,12 +42,15 @@
 <body>
 
 <section id='abstract'>
-<p>This document describes a set of guidelines for security and privacy disclosures, to assure broad participation, testing, and audit to keep users safe and the web’s security model intact.</p>
+<p>This document describes a set of best practices for organizations interested in protecting their users and applications
+  from frauds, malwares, and computer viruses, as well as interested in ensuring proper adherence to security and privacy considerations included in W3C Recommendations. It also
+  assures broad participation, testing, and audit from the security community to keep users safe and the web’s security model intact.</p>
 </section>
-
+<!--
+  organizations have a goal 
+  -->
 <section id="sotd">
   <p>
-    In response to requests to clarify W3C position regarding 
     This document is intended to be published as a W3C Team submission.
   </p>
 </section>
@@ -59,48 +62,54 @@
   </p>
   <blockquote cite="https://www.w3.org/blog/TAG/2015/11/16/strong-web-platform-statement/">
   <p>
-    The Web has been built through iteration and collaboration, and enjoys strong security because so many people are able to continually test and review its designs and implementations. As the Web gains interfaces to new device capabilities, we rely even more on broad participation, testing, and audit to keep users safe and the web’s security model intact. Therefore, W3C policy should assure that such broad testing and audit continues to be possible, as it is necessary to keep both design and implementation quality high.
+    The Web has been built through iteration and collaboration, and enjoys strong security because
+    so many people are able to continually test and review its designs and implementations. As the
+    Web gains interfaces to new device capabilities, we rely even more on broad participation,
+    testing, and audit to keep users safe and the web’s security model intact. Therefore, W3C
+    policy should assure that such broad testing and audit continues to be possible, as it is
+    necessary to keep both design and implementation quality high.
   </p>
   </blockquote>
+  <!-- not saying wha the doc is doing -->
+<!-- The Ditecor has determined that the best way is to have best practices -->
   <p>
-    There has been a series of attempts to issue a broad agreeement applicable to all participants in a
-    Working Group regarding regulations of circumbention of technological measures that effectively
-    control access to a work protected by copyrigh. The scope however was broad and went beyond
-    assuring broad participation, testing, and audit to keep users safe and the web’s security model
-    intact. This document is intended for
+    The Director has determined that the best way to address the concerns is to have a set of best practices.
+  </p>
+  <p>
+    This document is intended for:
   </p>
   <ol>
-    <li><dfn>security and privacy researchers</dfn>, interested in participation, testing and auditing of <a>user agent</a> to keep users safe and the web’s security model intact.</li>
-    <li>organizations, interested in protecting their users and applications from frauds, malwares, and computer viruses, as well as interested in ensuring proper adherence to security and privacy considerations including in W3C Recommendations.</li>
+    <li><dfn>security and privacy researchers</dfn>, interested in participation, testing and auditing of <a href='https://www.w3.org/TR/UAAG20/#def-user-agent'>user agent</a> to keep users safe and the web’s security model intact.</li>
+    <li><dfn>organizations</dfn>, interested in protecting their users and applications from frauds, malwares, and computer viruses, as well as interested in ensuring proper adherence to security and privacy considerations including in W3C Recommendations.</li>
   </ol>
 </section>
 
-<!--
+<!-- missing  a preambule -->
+
 <section>
-  <h2>Definitions</h2>
-  <p>A <dfn id='user-agent'>user agent</dfn> is any software that retrieves, renders and facilitates end user interaction with web content. This document identifies the following user agent architectures:
-  <ul>
-    <li><strong>platform-based user agent, native user agent</strong>: User agents that run on
-    non-web platforms (operating systems and cross-OS platforms, such as Java) and perform content
-    retrieval, rendering and end-user interaction facilitation themselves (e.g. Firefox, Edge,
-    Chrome, Opera, Windows Media Player, QuickTime Pro, RealPlayer).</li>
-    <li><strong>embedded user agent, plug-in</strong>: User agents that "plug-in" to other user
-    agents or applications (e.g. media player plug-in for a web browser, web view component).
-    Embedded user agents can establish direct connections with the platform (e.g. communication
-    via platform accessibility services).</li>
-    <li><strong>web-based user agent</strong>: User agents that have user interfaces that are
-    implemented using web content technologies and are accessed by users via a user agent. Web-based
-    user agents transform content into web content technologies that the host user agent can render
-    (e.g. Web-based ePub reader, Web-based video player).</li>
-    </ul>
-</section>
--->
-<section>
-<h2>W3C Security Disclosure Guidelines</h2>
+<h2>W3C Security Disclosure Best Practices</h2>
 <p>
   With respect to a Recommendation developed by W3C, the W3C Security Disclosure Guideline compliance
   contains obligations on security researchers as well as organizations.
 </p>
+<!-- we recommend that orgs use best practice which puts obligation -->
+
+<!-- missing this is our proposed best practices -->
+
+
+    <p>The organization:</p>
+    <ol>
+      <li>MUST agree not bring a lawsuit against the security researcher or ask law enforcement to investigate the person if the organization determines that a disclosure meets the criteria for security researcher and are not out of scope;</li>
+      <li>MUST be provided a reasonable time (such as 90 days) before public disclosure can be made;</li>
+      <li>MUST be provided an appropriate level of detail on the vulnerability to the organization to allow it to identify and reproduce the issue. Detail SHOULD include target URLs, request/response pairs, screenshots, and/or other information;</li>
+      <li>MUST confirm, within reasonnable times, the reception of the security disclosure (such as 3 days) and the validity of the disclosure (such as 10 days);</li>
+      <li>MUST provide a reasonnable mean of communications for sending disclosures and MAY provide additional services to ensure encrypted communications;</li> 
+      <li>SHOULD not encounter service disruption (e.g. DoS), privacy issues (i.e. accessing a customer’s data), and data destruction when performing vulnerability research, within a reasonable effort;</li>
+      <li>SHOULD keep the security researcher inform of progress in fixing the issue;</li>
+      <li>MAY provide compensation for security vulnerability reports;</li>
+      <li>MAY NOT impose any further conditions or restrictions on the disclosures but may include reasonable, customary terms relating to sending disclosures or interacting with security researchers such as the following: interest in specific disclosures, compensations, choice of law and dispute resolution.
+    </ol>
+
   <section>
     <h3>Out of Scope</h3>
     <p>
@@ -121,35 +130,10 @@
 <li>Vulnerability reports that require a large amount of user cooperation to perform unlikely or unreasonable actions which would be more symptomatic of a social engineering or phishing attack and not an application vulnerability (e.g. disabling browser security features, sending the attacker critical information to complete the attack, guiding the user through a particular flow and requiring them to enter malicious code themselves, etc.)</li>
 </ul>
   </section>
-  <section>
-  <h3>Security researchers</h3>
-  <p>The security and privacy researchers:</p>
-  <ol>
-  <li>MUST agree to a time period of no more 90 days before public disclosure;</li>
-  <li>MUST provide appropriate level of detail on the vulnerability to the organization to allow them to identify and reproduce the issue. Detail SHOULD include target URLs, request/response pairs, screenshots, and/or other information;</li>
-  <li>SHOULD make a reasonable effort to avoid service disruption (e.g. DoS), privacy issues (i.e. accessing a customer’s data), and data destruction when performing vulnerability research;</li>
-  <li>MUST not require compensation for security vulnerability reports.</li>
-  </ol>
-  </section>
-  <section>
-    <h3>Organizations</h3>
-    <p>The organizations:</p>
-    <ol>
-      <li>MUST agree not bring a lawsuit against the security researcher or ask law enforcement to investigate the person if the organization determines that a disclosure meets the criteria for security researcher and are not out of scope;</li>
-      <li>MUST confirm the reception of the security disclosure within 3 days and MUST confirm the validity of the disclosure within 10 days;</li>
-      <li>MUST provide an email address for sending disclosures and MAY provide additional services to ensure encrypted communications;</li> 
-      <li>MAY NOT impose any further conditions or restrictions on the disclosures but may include reasonable, customary terms relating to sending disclosures or interacting with security researchers such as the following: interest in specific disclosures, compensations, choice of law and dispute resolution;
-      <li>MAY keep the security researcher inform of progress in fixing the issue.</li>
-    </ol>
-  </section>
 </section>
 
 <section class='appendix'>
   <h2>Acknowledgments</h2>
-  <!--
-  <p>The <a>user agent</a> was copied from the <a href='https://www.w3.org/TR/UAAG20/#def-user-agent'>User Agent Accessibility Guidelines (UAAG) 2.0</a>
-  Working Group Note, authored by the <a href='http://www.w3.org/WAI/UA/'>User Agent Accessibility Guidelines Working Group</a>.</p>
--->
   <p>The document was largely inspired by the <a href='https://help.netflix.com/en/node/6657'>Responsible Vulnerability Disclosure</a> from <a href='https://www.netflix.com/'>Netflix</a>.</p>
 </section>
 </body>

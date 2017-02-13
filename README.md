@@ -1,2 +1,2 @@
-# security-disclosures
-Guidelines for Security Disclosures
+# Guidelines for Security Disclosures
+
