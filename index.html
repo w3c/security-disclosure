@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
-  <title>W3C Security Disclosures Guidelines</title>
+  <title>W3C Security Disclosures Best Practices</title>
   <script src='https://www.w3.org/Tools/respec/respec-w3c-common' async class='remove'>
   </script>
     <script class='remove'>
@@ -51,7 +51,7 @@
   -->
 <section id="sotd">
   <p>
-    This document is intended to be published as a W3C Team submission.
+    This document is intended to be published as a W3C Team submission. It is a proposal from the W3C Team and is not endorsed by the W3C Membership.
   </p>
 </section>
 
@@ -74,6 +74,7 @@
 <!-- The Ditecor has determined that the best way is to have best practices -->
   <p>
     The Director has determined that the best way to address the concerns is to have a set of best practices.
+    This document is a proposal from the W3C Team for those best practices and may get further work and refinements at the W3C.
   </p>
   <p>
     This document is intended for:
@@ -89,14 +90,8 @@
 <section>
 <h2>W3C Security Disclosure Best Practices</h2>
 <p>
-  With respect to a Recommendation developed by W3C, the W3C Security Disclosure Guideline compliance
-  contains obligations on security researchers as well as organizations.
+  We recommend the following set of practices to be including as part of an organization disclosure. It enumerates a set of obligations that the parties ought to follow.
 </p>
-<!-- we recommend that orgs use best practice which puts obligation -->
-
-<!-- missing this is our proposed best practices -->
-
-
     <p>The organization:</p>
     <ol>
       <li>MUST agree not bring a lawsuit against the security researcher or ask law enforcement to investigate the person if the organization determines that a disclosure meets the criteria for security researcher and are not out of scope;</li>
@@ -109,27 +104,6 @@
       <li>MAY provide compensation for security vulnerability reports;</li>
       <li>MAY NOT impose any further conditions or restrictions on the disclosures but may include reasonable, customary terms relating to sending disclosures or interacting with security researchers such as the following: interest in specific disclosures, compensations, choice of law and dispute resolution.
     </ol>
-
-  <section>
-    <h3>Out of Scope</h3>
-    <p>
-      The following issues are considered out of scope:
-    </p>
-    <ul>
-      <li>SSL vulnerabilities related to configuration or version</li>
-<li>Denial of Service (DoS)</li>
-<li>User enumeration</li>
-<li>Brute forcing</li>
-<li>Secure flag not set on non-sensitive cookies</li>
-<li>HTTPOnly flag not set</li>
-<li>Logout Cross Site Request Forgery (CSRF)</li>
-<li>Issues only present in old browsers/old plugins/end-of-life software browsers</li>
-<li>HTTP TRACE method enabled</li>
-<li>Vulnerability reports related to the reported version numbers of web servers, services, or frameworks</li>
-<li>Clickjacking on pages without authentication and/or sensitive state changes</li>
-<li>Vulnerability reports that require a large amount of user cooperation to perform unlikely or unreasonable actions which would be more symptomatic of a social engineering or phishing attack and not an application vulnerability (e.g. disabling browser security features, sending the attacker critical information to complete the attack, guiding the user through a particular flow and requiring them to enter malicious code themselves, etc.)</li>
-</ul>
-  </section>
 </section>
 
 <section class='appendix'>
