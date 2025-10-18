@@ -1,183 +1,283 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
   <meta charset="utf-8">
-  <title>W3C Security Disclosures Best Practices</title>
-  <script src='https://www.w3.org/Tools/respec/respec-w3c-common' async class='remove'>
+  <title>W3C Standards Vulnerability Disclosure & Handling Process and Policy</title>
+  <script src='https://www.w3.org/Tools/respec/respec-w3c' async class='remove'>
   </script>
-    <script class='remove'>
-  var respecConfig = {
-        specStatus: "base",
-        editors: [{
-          name: "Philippe Le Hegaret",
+  <script class='remove'>
+    var respecConfig = {
+      specStatus: "ED",
+      title: "W3C Standards Vulnerability Disclosure & Handling Process and Policy",
+      shortName: "security-disclosure",
+      group: "ig/security",
+      editors: [
+        {
+          name: "Simone Onofri",
           company: "W3C",
-          companyURL: "https://www.w3.org/"
+          companyURL: "https://w3.org/",
+          w3cid: 38211,
         }],
-        edDraftURI: "https://w3c.github.io/security-disclosure/",
-         license: 'w3c-software-doc',
-    otherLinks: [{
-      key: 'Repository',
-      data: [{
-        value: 'We are on Github.',
-        href: 'https://github.com/w3c/security-disclosure/'
+      formerEditors: [{
+        name: "Philippe Le Hegaret",
+        company: "W3C",
+        companyURL: "https://www.w3.org/",
+        w3cid: 6457,
+      }],
+      edDraftURI: "https://w3c.github.io/security-disclosure/",
+      license: 'w3c-software-doc',
+      otherLinks: [{
+        key: 'Repository',
+        data: [{
+          value: 'We are on Github.',
+          href: 'https://github.com/w3c/security-disclosure/'
+        }, {
+          value: 'File a bug.',
+          href: 'https://github.com/w3c/security-disclosure/issues'
+        }, {
+          value: 'Commit history.',
+          href: 'https://github.com/w3c/security-disclosure/commits/master'
+        }]
       }, {
-        value: 'File a bug.',
-        href: 'https://github.com/w3c/security-disclosure/issues'
-      }, {
-        value: 'Commit history.',
-        href: 'https://github.com/w3c/security-disclosure/commits/master'
-      }]
-    },{
-      key: 'Mailing list',
-      data: [{
-        value: 'public-security-disclosure@w3.org',
-        href: 'https://lists.w3.org/Archives/Public/public-security-disclosure/'
-      }]
-    }]
-  };
+        key: 'Mailing list',
+        data: [{
+          value: 'public-security-disclosure@w3.org',
+          href: 'https://lists.w3.org/Archives/Public/public-security-disclosure/'
+        }],
+      }],
+      localBiblio: {
+        "ISO-IEC-29147": {
+          title: "Information technology — Security techniques — Vulnerability disclosure",
+          href: "https://www.iso.org/standard/45170.html",
+          publisher: "ISO/IEC",
+          date: "2018"
+        },
+        "ISO-IEC-30111": {
+          title: "Information technology — Security techniques — Vulnerability handling processes",
+          href: "https://www.iso.org/standard/69725.html",
+          publisher: "ISO/IEC",
+          date: "2019"
+        },
+        "NIST-SP-800-216": {
+          title: "Recommendations for Federal Vulnerability Disclosure Guidelines",
+          href: "https://csrc.nist.gov/publications/detail/sp/800-216/final",
+          publisher: "NIST",
+          date: "2023"
+        },
+        "IETF-RFC-VULN": {
+          title: "IETF Vulnerability Disclosure Process & Guidance",
+          href: "https://www.ietf.org/process/rfcs/vulnerabilities/",
+          publisher: "IETF",
+          date: "2024"
+        }
+      },
+    };
   </script>
 
 </head>
 
 <body>
 
-<section id='abstract'>
-<p>This document contains a template intended for organizations interested in protecting their users and applications
-  from fraud, malware, and computer viruses, as well as interested in ensuring proper adherence to security and privacy considerations included in W3C Recommendations. It also
-  help to support broad participation, testing, and audit from the security community to keep users safe and the web’s security model intact.</p>
-</section>
-<!--
-  organizations have a goal 
-
-
-  Different voice:
-
-  here is the template of the typical disclosure best practices that we recommend for orgs.
-
-  We agree to ... (instead of MUST)
-
-  give the orgs the actual words to copy. first person.
-
-
-  for may, could be put at additional notes
-
-  -->
-<section id="sotd">
-  <p class='note'>
-    This document is a <strong>work in progress</strong> and may be changed at any time and without notice.
-  </p>
-  <p>
-    This March 2017 <a href='http://www.w3.org/TeamSubmission/'>W3C Team Submission</a>, is a proposal for security and privacy disclosure programs.
-  </p>
-  <p>
-   By publishing this document, Philippe Le Hegaret made a formal submission to W3C for discussion. Publication of this document by W3C indicates no endorsement of its content by W3C, nor that W3C has, is, or will be allocating any resources to the issues addressed by it. This document is not the product of a chartered W3C group, but is published as potential input for further work. Please consult the <a href='https://www.w3.org/TeamSubmission'>complete list of acknowledged W3C Team Submissions</a>.
-  </p>
-</section>
-
-<section>
-<h2>Introduction</h2>
-
-<p>Many organizations making software and hardware products encourage their
-  customers and users to provide feedback about bugs in their products. Especially important are
-  bugs related to security which  can be exploited to gain unauthorized access or
-  privileges in their products. However, in some cases, customers and security researchers
-  are reluctant to provide such information to vendors. This is
-  particularly the case when their actions could be interpreted as
-  circumventing measures that control access to copyrighted works. There are existing statutes
-  prohibiting the circumvention of technological protection measures
-  (TPMs), such as section 1201-1203 of the US DMCA, as well as laws in other territories
-  (EUCD implementations in the EU; Bill C-11 in Canada; and other laws throughout Asia,
-  Latin-America, Australia, NZ, etc).</p>
-
- <p>The deployment and ubiquity of the Web reinforce the importance of maintaining strong security in the Web Platform.
-    We rely on broad participation, testing, and audit to keep users safe and the web’s security model intact.
-    As such, we should assure that such broad testing and audit continues to be possible, as it is
-    necessary to keep both design and implementation quality high.</p>
-
-<p>This document provides a template that vendors should
-  adopt as best practices and would remove impediments to disclosing security and privacy bugs.</p>
-</section>
-<!--
-<section>
-  <h2>Background</h2>
-  <p class='issue'>
-    Not sure if this section is actually helpful. (remove it?)
+  <section id='abstract'>
+    <p>
+      This document defines how to report suspected security vulnerabilities in <em>W3C standards and
+        specifications</em> (technical reports), so that issues can be triaged, confirmed, and resolved through the
+      appropriate W3C processes.
+      <br>It is not for reporting vulnerabilities in software implementations or W3C operational infrastructure (see <a
+        href="#out-of-scope">Out of scope</a>).
     </p>
-  <p>In 2015, the <a href='https://www.w3.org/2001/tag/'>W3C Technical Architecture Group</a> issued a <a href='https://www.w3.org/blog/TAG/2015/11/16/strong-web-platform-statement/'>statement</a>:
-  </p>
-  <blockquote cite="https://www.w3.org/blog/TAG/2015/11/16/strong-web-platform-statement/">
-  <p>
-    The Web has been built through iteration and collaboration, and enjoys strong security because
-    so many people are able to continually test and review its designs and implementations. As the
-    Web gains interfaces to new device capabilities, we rely even more on broad participation,
-    testing, and audit to keep users safe and the web’s security model intact. Therefore, W3C
-    policy should assure that such broad testing and audit continues to be possible, as it is
-    necessary to keep both design and implementation quality high.
-  </p>
-  </blockquote>
-  <p>
-    The Director has determined that one of the ways to address the concerns is to have a set of best practices.
-    This document is a proposal from the W3C Team for those best practices and may get further work and refinements at the W3C.
-  </p>
-  <p>
-    This document is intended for:
-  </p>
-  <ol>
-    <li><dfn>security and privacy researchers</dfn>, interested in participation, testing and auditing of <a href='https://www.w3.org/TR/UAAG20/#def-user-agent'>user agent</a> to keep users safe and the web’s security model intact.</li>
-    <li><dfn>organizations</dfn>, interested in protecting their users and applications from frauds, malwares, and computer viruses, as well as interested in ensuring proper adherence to security and privacy considerations including in W3C Recommendations.</li>
-  </ol>
-</section>
--->
-<!-- missing  a preambule
+  </section>
+  <section id="sotd">
+    <p class='note'>
+      This document is a <strong>work in progress</strong> and may be changed at any time and without notice.
+    </p>
+  </section>
 
-  here is the template of the typical disclosure best practices that we recommend for orgs.
+  <section>
+    <h2>Introduction</h2>
+    <h3>Overview</h3>
+    <p>
+      The World Wide Web Consortium (W3C) recognizes that there may be some security issues in W3C standards and
+      specifications. W3C appreciates researchers giving feedback on our work, because it is critical to keeping the Web
+      secure. If you have found a security issue in a W3C specification, your help is very important.
+    </p>
+    <h3>Purpose</h3>
+    <p>
+      The purpose of this policy is to describe how the vulnerability disclosure process works for standards at W3C.
+    </p>
+  </section>
+  <section>
+    <h2>Scope and Application</h2>
+    <p>W3C is a standards development organization that publishes Technical Reports, including W3C Recommendations,
+      Notes, and Registries, which describe Web technologies and specifications. While these documents may include
+      occasional references or example source code, W3C does not build or maintain implementations of protocols.</p>
+    <p>Therefore, this policy applies to <strong>design vulnerabilities or security issues described in W3C
+        Specifications</strong>.</p>
+    <p id="out-of-scope">This policy <strong>does NOT</strong> cover:</p>
+    <ul>
+      <li><strong>Implementation or configuration vulnerabilities</strong> in products, open-source projects, or
+        services that may implement W3C standards. These issues must be addressed by their corresponding vendor or
+        maintainers, as W3C does not have a formal means to reach these parties. </li>
+      <li><strong>Vulnerabilities in W3C infrastructure and services</strong> that support w3.org domains. These are the
+        responsibility of W3C Systems, which has its <a
+          href='https://www.openbugbounty.org/bugbounty/w3c_systeam/'>vulnerability disclosure policy</a>.</li>
+  </section>
+  <section>
+    <h2>Process and Policy</h2>
+    <p>W3C appreciates the comments made by researchers on their work. The response from W3C will depend on the type of
+      technical report in which the problem was found, the severity of the problem, and the complexity of the solution.
+      W3C will try to resolve and correct security issues as soon as possible. It follows the process that is based on
+      the recommended steps of ISO/IEC 29147 (Vulnerability Disclosure - VD) and ISO/IEC 30111 (Vulnerability Handling -
+      VH).</p>
+    <p>W3C handles and routes reports according to the type and maturity of the document in which the Security Issue is
+      reported. </p>
+    <h3>Reporting a Vulnerability in a W3C Standard</h3>
+    <p>If you think you have found a vulnerability in a W3C document, please contact <a
+        href='mailto:standards-vulnerability@w3.org'><strong>standards-vulnerability@w3.org</strong></a> for coordinated
+      disclosure. </p>
+    <p>This email serves as the point of reference for assessment and action by the group designated to coordinate
+      Vulnerability Disclosure and Handling, composed of the W3C Team and relevant groups.</p>
+    <p>It is advisable to send encrypted messages using the PGP key to <a
+        href='mailto:standards-vulnerability@w3.org'>standards-vulnerability@w3.org</a>.This. This email does not have a
+      public archive.</p>
+    <p>To facilitate the process, your <em>advisory</em> should include details such as those recommended by ISO/IEC
+      29147 and NIST SP 800-216:</p>
+    <ul>
+      <li><strong>The specific document</strong> in which the vulnerability is present (e.g., its title, stable URL, and
+        publication date). </li>
+      <li>A concise <strong>description of the type of vulnerability</strong> (e.g., Use of unsafe cryptographic
+        algorithms). </li>
+      <li><strong>Steps to reproduce</strong> the vulnerability, ideally a benign, non-destructive proof of concept.
+      </li>
+      <li>The <strong>impact of exploiting this vulnerability</strong> and how it could be used in an attack scenario.
+      </li>
+      <li><strong>Proposed corrective or mitigating measures</strong>, if any. </li>
+      <li>Your contact details (optional, to enable anonymous reporting, but helpful for follow-up clarifications).</li>
 
-  We agree to ... (instead of MUST)
+    </ul>
+    <p>Please note that:</p>
+    <ul>
+      <li><strong>No &quot;Bug Bounties&quot;:</strong> W3C does not pay &quot;bug bounties&quot; for reported
+        vulnerabilities. </li>
+      <li><strong>Confidentiality</strong>: The <em>Reporter</em> and the Coordinator involved in this policy will
+        respect the confidentiality of information and data obtained in carrying out their tasks, especially regarding
+        intellectual property rights, confidential business information, and public and national security interests.
+        Sensitive vulnerability information should be communicated confidentially to minimise risk. </li>
+      <li><strong>Researcher Protections</strong>: W3C recognizes the importance of good-faith security research. W3C
+        will provide <strong>non-prosecution information security researchers and an exemption from civil
+          liability</strong> for their activities, acknowledging the challenges faced by vulnerability researchers. This
+        policy is designed to be compatible with common vulnerability responsible disclosure good practice and does not
+        permit acting in a manner inconsistent with applicable law.</li>
+    </ul>
+    <h3>Receipt and Acknowledgment of the Security Issue (VD)</h3>
+    <p>Once received, security issues will be <strong>acknowledged within 3 business days</strong>, establishing the
+      communication channel with the reporter.</p>
+    <h3>Verification of the Security Issues (VH)</h3>
+    <p>After the acknowledgement, the Security Issue will be evaluated to determine its validity, technical criticality,
+      importance, and potential impact.</p>
+    <p>W3C will aim to <strong>verify the issue’s validity and inform the reporter within 15 working days</strong>. If
+      more information is needed to verify the security issue, W3C will request additional details from the source.</p>
+    <p>The advisory will be handled according to the type of document to which it refers.</p>
+    <h3>Handling and Resolution development (VH)</h3>
+    <p>W3C will then collaborate with the <em>reporter</em> and the groups impacted by the security issue, which will
+      primarily involve updating the relevant document.</p>
+    <h4>W3C Recommendations - Published</h4>
+    <p>These are completed, community-reviewed standards.</p>
+    <ul>
+      <li>
+        <p>If the <strong>Working Group that produced the Recommendation is still active,</strong> the Working Group is
+          <em>accountable</em> for determining the most suitable approach to address it. If confirmed, the vulnerability
+          might be addressed via:
+        </p>
+        <ul>
+          <li>An erratum (for minor issues or corrections that do not change the normative content). W3C Working Groups
+            <strong>must keep a public record of errors</strong> reported for Recommendations, compiled no less
+            frequently than quarterly.
+          </li>
+          <li>An updated protocol specification document (revising the Recommendation). </li>
+          <li>An entirely new document to handle the issue. </li>
 
-  give the orgs the actual words to copy. first person.
+        </ul>
+      </li>
+      <li>
+        <p>If the <strong>Working Group is closed</strong>, the W3C Team is <em>accountable</em> for determining the
+          most suitable approach to address the issue. The severity of the issue will determine the next steps: </p>
+        <ul>
+          <li>Minor issues can be covered with errata (potentially maintained by the W3C Team if no group is chartered).
+          </li>
+          <li>For more significant updates, the W3C Team may promote a different approach.</li>
 
+        </ul>
+      </li>
 
-  for may, could be put at additional notes
- -->
+    </ul>
+    <p>Class 3 or 4 changes, as per W3C Process, can trigger more extensive review and patent policy implications.</p>
+    <p>The issue will be handled in the <strong>Security Issue functionality on GitHub</strong>.</p>
+    <h4>Candidate Recommendations (CR) and Working Drafts (WD) - In Development</h4>
+    <p>These are documents adopted by a W3C Working Group, but that they are not yet finalized.</p>
+    <ul>
+      <li>W3C Working Groups should formally address any substantive review comments about a technical report promptly.
+      </li>
 
-<section>
-<h2>W3C Security Disclosure and Privacy Best Practices</h2>
-<p>
-  This section contains a template of typical coordinated disclosure program best practices that we recommend for adoption by organizations.
-</p>
-<blockquote style='font-style: italic'>
-    <p>We <span style='font-style: normal'>(the organization)</span>:</p>
-    <ol>
-    <ol>
-      <li>Agree not to bring suit against you, recommend law enforcement investigation, or cooperate with law enforcement investigation, if your disclosure meets the criteria listed in this section;</li>
-      <li>Request that you give us a reasonable time (usually not to exceed 90 days) before publicly disclosing specific details of the vulnerability;</li>
-      <li>Request to be provided an appropriate level of detail on the vulnerability to allow us to identify and reproduce the issue. Detail should include target URLs, request/response pairs, screenshots, and/or other relevant information;</li>
-      <li>Agree to confirm, within a reasonable time, receipt of your disclosure (such as 3 days) and the validity of your disclosure (such as
-10 days);</li>
-      <li>Request that your vulnerability research not create service disruption (e.g. DoS), privacy issues (i.e. accessing a customer’s data), or data destruction, within a reasonable effort.</li>
-    </ol>
-</blockquote>
+    </ul>
+    <p>The issue will be handled on the <strong>associated Working Group mailing list or the Security Issue
+        functionality on GitHub</strong>.</p>
+    <h4>Editor&#39;s Drafts - Early Stage/Individual Contributions</h4>
+    <p>These are not officially adopted documents in W3C. Editor&#39;s Drafts, that haven&#39;t been published as a W3C
+      specification, have no official standing.</p>
+    <ul>
+      <li>The issue should be <strong>handled and discussed with the editors</strong> of the document. </li>
+      <li>Although not formally adopted, the issue can also be discussed on the <strong>associated Working Group mailing
+          list or the Security Issue functionality on GitHub</strong>.</li>
 
-<p>Your organization may not impose any further conditions or restrictions on the disclosures but may include reasonable, customary terms relating to sending disclosures or interacting with vulnerability researchers such as the following: interest in specific disclosures, compensations, choice of law and dispute resolution. In addition, your organization may also express interest or disinterest in particular areas of review.
+    </ul>
+    <p>The issue will be handled on the <strong>associated Working Group mailing list or the Security Issue
+        functionality on GitHub</strong>.</p>
+    <h4>Discontinued, Obsolete, or Rescinded Documents</h4>
+    <ul>
+      <li>W3C Technical Reports that have been marked as discontinued, obsolete, or rescinded are <strong>unlikely to
+          have action taken on them</strong> in response to a security issue report. Still, the Team should evaluate
+        listing them in the Status of the document (SOTD).</li>
 
-<p>In addition, we also recommend that your organization keep the researcher informed of progress in fixing the issue.</p>
+    </ul>
+    <p>The issue will be handled in the <strong>Security Issue functionality on GitHub</strong>.</p>
+    <h4>Community Group Reports</h4>
+    <p>These are not officially adopted documents in W3C, and the <a
+        href='https://www.w3.org/community/about/process/#deliverables'>Community and Business Group Process regulates
+        them</a>.</p>
+    <ul>
+      <li>Any issues found should be <strong>handled and discussed with the editors</strong> of the document. </li>
 
-<p><strong>Note:</strong> your organization must provide a reasonnable mean of communications for receiving disclosures and may also provide additional services to ensure encrypted communications.</p>
-      
-</li> 
+    </ul>
+    <p>The issue will be handled in the <strong>associated Community Group mailing list or the Security Issue
+        functionality on GitHub.</strong></p>
+    <h4>Member’s Submissions</h4>
+    <p>These are not officially adopted documents in W3C. Member Submissions are proposed by Members for consideration.
+    </p>
+    <ul>
+      <li>Any issues found should be <strong>handled and discussed with the editors</strong> of the document. </li>
 
-</section>
-
-<section class='appendix'>
-  <h2>Acknowledgments</h2>
-  <p>Several individuals contributed to the document. The author especially thank: @@TODO.</p>
-  <p>The document was largely inspired by the <a href='https://help.netflix.com/en/node/6657'>Responsible Vulnerability Disclosure</a> from <a href='https://www.netflix.com/'>Netflix</a> and the <a href="https://www.w3.org/blog/TAG/2015/11/16/strong-web-platform-statement/">Technical Architecture Group statement</a>.</p>
-</section>
+    </ul>
+    <p>The issue will be handled <strong>according to the member&#39;s policy</strong>.</p>
+    <h3>Release and Dissemination (VD)</h3>
+    <p>Once the update has been made available and sufficient time has been allowed to implement updates and releases of
+      related technologies, W3C encourages the <strong>sharing and public disclosure of information about fixed
+        vulnerabilities</strong>, including a description of the vulnerabilities, information allowing users to identify
+      the affected standard, the impacts, their severity, and clear, accessible information to help implementers and
+      users remediate. In some cases, where security risks of publication outweigh security benefits, disclosure may be
+      delayed until after implementers and users have had the opportunity to apply the relevant countermeasures.</p>
+    <p>W3C welcomes requests to disclose your report once the vulnerability has been resolved and aims to coordinate
+      public release. If the <em>reporter</em> wishes to be publicly recognized, W3C will acknowledge them for reporting
+      the vulnerability, provided the reporter wishes to be publicly credited.</p>
+  </section>
+  <section class='appendix'>
+    <h2>Acknowledgments</h2>
+    <p>This document is based on the <a href='https://www.ietf.org/process/rfcs/vulnerabilities/'>IETF Reporting
+        Protocols Vulnerabilities</a> and <a href='https://www.w3.org/TeamSubmission/sdbp/'>W3C Security Disclosures
+        Best Practices</a>. Several individuals contributed to the document. The editor especially thanks Philippe Le
+      Hegaret, Ian Jacobs, and François Daoust.</p>
+  </section>
 </body>
+
 </html>
-
-
-<!-- out of scope rational
-
-
- -->
