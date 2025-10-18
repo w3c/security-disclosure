@@ -1,2 +1,2 @@
-# Guidelines for Security Disclosures
+# W3C Standards Vulnerability Disclosure & Handling Process and Policy
 
