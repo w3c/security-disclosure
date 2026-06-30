@@ -35,7 +35,7 @@
       otherLinks: [{
         key: 'Repository',
         data: [{
-          value: 'We are on Github.',
+          value: 'We are on GitHub.',
           href: 'https://github.com/w3c/security-disclosure/'
         }, {
           value: 'File a bug.',
@@ -54,7 +54,7 @@
       localBiblio: {
         "ISO-IEC-29147": {
           title: "Information technology — Security techniques — Vulnerability disclosure",
-          href: "https://www.iso.org/standard/45170.html",
+          href: "https://www.iso.org/standard/72311.html",
           publisher: "ISO/IEC",
           date: "2018"
         },
@@ -103,13 +103,14 @@
     <h2>Introduction</h2>
     <h3>Overview</h3>
     <p>
-      The World Wide Web Consortium (W3C) recognizes that there may be some security issues in W3C standards and
-      specifications. W3C appreciates researchers giving feedback on our work, because it is critical to keeping the Web
-      secure. If you have found a security issue in a W3C specification, your help is very important.
+      W3C standards and specifications can contain design issues that create security risks for users, implementers, or
+      the Web platform. Reports from researchers and the wider community help W3C identify those issues and route them
+      to the people who can assess and address them.
     </p>
     <h3>Purpose</h3>
     <p>
-      The purpose of this policy is to describe how the vulnerability disclosure process works for standards at W3C.
+      This policy describes how W3C receives, triages, routes, and coordinates reports about suspected vulnerabilities in
+      W3C standards and specifications.
     </p>
   </section>
   <section>
@@ -117,35 +118,37 @@
     <p>W3C is a standards development organization that publishes Technical Reports, including W3C Recommendations,
       Notes, and Registries, which describe Web technologies and specifications. While these documents may include
       occasional references or example source code, W3C does not build or maintain implementations of their standards.</p>
-    <p>Therefore, this policy applies to <strong>design vulnerabilities or security issues described in W3C
-        Specifications</strong>.</p>
+    <p>This policy applies to <strong>design vulnerabilities or security issues described in W3C
+        specifications</strong>.</p>
     <p id="out-of-scope">This policy <strong>does NOT</strong> cover:</p>
     <ul>
       <li><strong>Implementation or configuration vulnerabilities</strong> in products, open-source projects, or
-        services that may implement W3C standards. These issues must be addressed by their corresponding vendor or
-        maintainers, as W3C does not have a formal means to reach these parties. </li>
+        services that may implement W3C standards. These issues should be reported to the corresponding vendor or
+        maintainer.</li>
       <li><strong>Vulnerabilities in W3C infrastructure and services</strong> that support w3.org domains. These are the
         responsibility of W3C Systems, which has its <a
           href='https://www.openbugbounty.org/bugbounty/w3c_systeam/'>vulnerability disclosure policy</a>.</li>
+    </ul>
   </section>
   <section>
     <h2>Process and Policy</h2>
-    <p>W3C appreciates the comments made by researchers on their work. The response from W3C will depend on the type of
-      technical report in which the problem was found, the severity of the problem, and the complexity of the solution.
-      W3C will try to resolve and correct security issues as soon as possible. It follows the process that is based on
-      the recommended steps of ISO/IEC 29147 (Vulnerability Disclosure - VD) and ISO/IEC 30111 (Vulnerability Handling -
-      VH).</p>
-    <p>W3C handles and routes reports according to the type and maturity of the document in which the Security Issue is
-      reported. </p>
+    <p>W3C's response depends on the type of technical report in which the issue was found, the severity of the issue,
+      and the complexity of the response. W3C will work to resolve confirmed security issues without unnecessary delay.
+      This policy is based on the recommended steps of ISO/IEC 29147 (Vulnerability Disclosure - VD) and ISO/IEC 30111
+      (Vulnerability Handling - VH).</p>
+    <p>W3C handles and routes reports according to the type and maturity of the document in which the security issue is
+      reported.</p>
     <h3>Reporting a Vulnerability in a W3C Standard</h3>
     <p>If you think you have found a vulnerability in a W3C document, please contact <a
         href='mailto:standards-vulnerability@w3.org'><strong>standards-vulnerability@w3.org</strong></a> for coordinated
       disclosure. </p>
-    <p>This email serves as the point of reference for assessment and action by the group designated to coordinate
-      Vulnerability Disclosure and Handling, composed of the W3C Team and relevant groups.</p>
+    <p>This email serves as the point of reference for the initial triage by the W3C Team. After triage, the W3C Team
+      will involve the appropriate group depending on the report and the affected specification. This normally includes
+      the Team contact, chair, and editors, and may include other people when their input is needed.</p>
     <p>It is advisable to send encrypted messages using the PGP key to <a
         href='mailto:standards-vulnerability@w3.org'>standards-vulnerability@w3.org</a>. This email does not have a
       public archive.</p>
+    <p class="issue">The PGP key for standards-vulnerability@w3.org will be made available before publication.</p>
     <p>To facilitate the process, your <em>advisory</em> should include details such as those recommended by ISO/IEC
       29147 and NIST SP 800-216:</p>
     <ul>
@@ -179,14 +182,16 @@
     <p>Once received, security issues will be <strong>acknowledged within 3 business days</strong>, establishing the
       communication channel with the reporter.</p>
     <h3>Verification of the Security Issues (VH)</h3>
-    <p>After the acknowledgement, the Security Issue will be evaluated to determine its validity, technical criticality,
-      importance, and potential impact.</p>
+    <p>After the acknowledgement, the security issue will be evaluated to determine its validity, technical severity,
+      relevance, and potential impact.</p>
     <p>W3C will aim to <strong>verify the issue’s validity and inform the reporter within 15 working days</strong>. If
       more information is needed to verify the security issue, W3C will request additional details from the source.</p>
+    <p>The W3C Team is responsible for tracking these response targets and for escalating the report when more time,
+      coordination, or authority is needed.</p>
     <p>The advisory will be handled according to the type of document to which it refers.</p>
-    <h3>Handling and Resolution development (VH)</h3>
-    <p>W3C will then collaborate with the <em>reporter</em> and the groups impacted by the security issue, which will
-      primarily involve updating the relevant document.</p>
+    <h3>Handling and Resolution Development (VH)</h3>
+    <p>W3C will then coordinate with the <em>reporter</em> and the groups responsible for the affected document. In most
+      cases, resolution will primarily involve updating the relevant document.</p>
     <h4>W3C Recommendations - Published</h4>
     <p>These are completed, community-reviewed standards.</p>
     <ul>
@@ -238,8 +243,8 @@
         <strong><a href="https://docs.github.com/en/code-security/concepts/vulnerability-reporting-and-management/about-repository-security-advisories">Security Issue functionality on GitHub</a></strong>.</li>
 
     </ul>
-    <p>The issue will be handled on the <strong>associated Working Group mailing list or the Security Issue
-        functionality on GitHub</strong>.</p>
+    <p>The issue will be handled on the <strong>associated Working Group mailing list or through GitHub private
+        vulnerability reporting for the relevant repository, where enabled</strong>.</p>
     <h4>Discontinued, Obsolete, or Rescinded Documents</h4>
     <ul>
       <li>W3C Technical Reports that have been marked as discontinued, obsolete, or rescinded are <strong>unlikely to
@@ -270,9 +275,9 @@
     <h3>Release and Dissemination (VD)</h3>
     <p>Once the update has been made available and sufficient time has been allowed to implement updates and releases of
       related technologies, W3C encourages the <strong>sharing and public disclosure of information about fixed
-        vulnerabilities</strong>, including a description of the vulnerabilities, information allowing users to identify
-      the affected standard, the impacts, their severity, and clear, accessible information to help implementers and
-      users remediate. In some cases, where security risks of publication outweigh security benefits, disclosure may be
+        vulnerabilities</strong>. This may include a description of the vulnerability, information that allows users to
+      identify the affected standard, the impact and severity, and clear information to help implementers and users
+      remediate the issue. In some cases, where security risks of publication outweigh security benefits, disclosure may be
       delayed until after implementers and users have had the opportunity to apply the relevant countermeasures.</p>
     <p>W3C welcomes requests to disclose your report once the vulnerability has been resolved and aims to coordinate
       public release. If the <em>reporter</em> wishes to be publicly recognized, W3C will acknowledge them for reporting

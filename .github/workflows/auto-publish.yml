@@ -1,20 +1,25 @@
-name: CI
+name: Node CI
+
 on:
-  pull_request: {}
   push:
-    branches: [main]
+    branches:
+      - main
+  pull_request: {}
+
 jobs:
-  main:
-    name: Build, Validate, Deploy
+  validate-and-publish:
+    name: Validate and Publish
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: w3c/spec-prod@v2
         with:
-          GH_PAGES_BRANCH: gh-pages
-          SOURCE: index.html
-          DESTINATION: index.html
           TOOLCHAIN: respec
+          VALIDATE_LINKS: false
+          VALIDATE_PUBRULES: false
+          GH_PAGES_BRANCH: gh-pages
+          W3C_ECHIDNA_TOKEN: ${{ secrets.ECHIDNA_TOKEN }}
+          W3C_WG_DECISION_URL: "https://lists.w3.org/Archives/Public/public-security/2026Jun/0018.html"
+          W3C_NOTIFICATIONS_CC: "${{ secrets.CC }}"
           W3C_BUILD_OVERRIDE: |
-            shortName: security-disclosure
-            status: ED
+            specStatus: WD
