@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en-US"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 37.1.0">
+<meta name="generator" content="ReSpec 37.3.3">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 .issue-label{text-transform:initial}
@@ -40,9 +40,6 @@ dfn{cursor:pointer}
   
 <title>W3C Standards Vulnerability Disclosure &amp; Handling Process and Policy</title>
   
-  
-
-
 <style id="respec-mainstyle">
 @keyframes pop{
 0%{transform:scale(1,1)}
@@ -80,10 +77,10 @@ details.respec-tests-details>li{padding-left:1em}
 aside.example .marker>a.self-link{color:inherit}
 .header-wrapper{display:flex;align-items:baseline}
 :is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2):has(+a.self-link){position:relative;left:-.5em}
-:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.5}
-:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.8}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none}
 :is(h2,h3)+a.self-link{top:-.2em}
-:is(h4,h5,h6)+a.self-link::before{color:#000}
+:is(h2,h3)+a.self-link::before{color:var(--heading-text)}
 @media (max-width:767px){
 dd{margin-left:0}
 }
@@ -93,8 +90,12 @@ dd{margin-left:0}
 body:has(input[name=color-scheme][value=light]:checked),head:not(:has(meta[name=color-scheme][content~=dark]))+body{color-scheme:light}
 body:has(input[name=color-scheme][value=dark]:checked){color-scheme:dark}
 </style>
+  
+
+
 <meta name="color-scheme" content="light">
-<meta name="revision" content="cfa4c4795c73dc3ebd5b00c7af082f7119eabc4e">
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/dark.css" disabled="">
+<meta name="revision" content="328dd726fdf9da266dcb83fe0dbf4900b1f1ed9a">
 <meta name="description" content="This document defines how to report suspected security vulnerabilities in W3C standards and
         specifications (technical reports), so that issues can be triaged, confirmed, and resolved through the
       appropriate W3C processes.
@@ -206,9 +207,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "date": "2024"
     }
   },
-  "gitRevision": "cfa4c4795c73dc3ebd5b00c7af082f7119eabc4e",
-  "publishISODate": "2026-06-30T00:00:00.000Z",
-  "generatedSubtitle": "W3C Editor's Draft 30 June 2026"
+  "gitRevision": "328dd726fdf9da266dcb83fe0dbf4900b1f1ed9a",
+  "publishISODate": "2026-08-24T00:00:00.000Z",
+  "generatedSubtitle": "W3C Editor's Draft 24 August 2026"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED"></head>
 
@@ -216,35 +217,35 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
   </a></p>
     <h1 id="title" class="title">W3C Standards Vulnerability Disclosure &amp; Handling Process and Policy</h1> 
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2026-06-30">30 June 2026</time></p>
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2026-08-24">24 August 2026</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
         <dt>This version:</dt><dd>
-                <a class="u-url" href="https://w3c.github.io/security-disclosure/">https://w3c.github.io/security-disclosure/</a>
-              </dd>
+                  <a class="u-url" href="https://w3c.github.io/security-disclosure/">https://w3c.github.io/security-disclosure/</a>
+                </dd>
         <dt>Latest published version:</dt><dd>
-                none
-              </dd>
+                  none
+                </dd>
         <dt>Latest editor's draft:</dt><dd><a href="https://w3c.github.io/security-disclosure/">https://w3c.github.io/security-disclosure/</a></dd>
         <dt>History:</dt><dd>
-                    <a href="https://github.com/w3c/security-disclosure/commits/">Commit history</a>
-                  </dd>
+                        <a href="https://github.com/w3c/security-disclosure/commits/">Commit history</a>
+                      </dd>
         
         
         
         
         
         <dt>
-                Editors:
-              </dt><dd class="editor p-author h-card vcard" data-editor-id="38211">
+                  Editors:
+                </dt><dd class="editor p-author h-card vcard" data-editor-id="38211">
     <span class="p-name fn">Simone Onofri</span> (<a class="p-org org h-org" href="https://w3.org/">W3C</a>)
   </dd><dd class="editor p-author h-card vcard" data-editor-id="171863">
     <span class="p-name fn">Luca Lumini</span> (<span class="p-org org h-org">Invited Expert</span>)
   </dd>
         <dt>
-                Former editor:
-              </dt><dd class="editor p-author h-card vcard" data-editor-id="6457">
+                  Former editor:
+                </dt><dd class="editor p-author h-card vcard" data-editor-id="6457">
     <span class="p-name fn">Philippe Le Hegaret</span> (<a class="p-org org h-org" href="https://www.w3.org/">W3C</a>)
   </dd>
         
@@ -316,20 +317,20 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           Policy</a>.
       
     
-                <abbr title="World Wide Web Consortium">W3C</abbr> maintains a
-                <a rel="disclosure" href="https://www.w3.org/groups/ig/security/ipr">public list of any patent disclosures</a>
-          made in connection with the deliverables of
-          the group; that page also includes
-          instructions for disclosing a patent. An individual who has actual
-          knowledge of a patent that the individual believes contains
-          <a href="https://www.w3.org/policies/patent-policy/#def-essential">Essential Claim(s)</a>
-          must disclose the information in accordance with
-          <a href="https://www.w3.org/policies/patent-policy/#sec-Disclosure">section 6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
-        
+                    <abbr title="World Wide Web Consortium">W3C</abbr> maintains a
+                    <a rel="disclosure" href="https://www.w3.org/groups/ig/security/ipr">public list of any patent disclosures</a>
+            made in connection with the deliverables of
+            the group; that page also includes
+            instructions for disclosing a patent. An individual who has actual
+            knowledge of a patent that the individual believes contains
+            <a href="https://www.w3.org/policies/patent-policy/#def-essential">Essential Claim(s)</a>
+            must disclose the information in accordance with
+            <a href="https://www.w3.org/policies/patent-policy/#sec-Disclosure">section 6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
+          
   </p><p>
-                      This document is governed by the
-                      <a id="w3c_process_revision" href="https://www.w3.org/policies/process/20250818/">18 August 2025 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
-                    </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">1.1 </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#purpose"><bdi class="secno">1.2 </bdi>Purpose</a></li></ol></li><li class="tocline"><a class="tocxref" href="#scope-and-application"><bdi class="secno">2. </bdi>Scope and Application</a></li><li class="tocline"><a class="tocxref" href="#process-and-policy"><bdi class="secno">3. </bdi>Process and Policy</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#reporting-a-vulnerability-in-a-w3c-standard"><bdi class="secno">3.1 </bdi>Reporting a Vulnerability in a <abbr title="World Wide Web Consortium">W3C</abbr> Standard</a></li><li class="tocline"><a class="tocxref" href="#receipt-and-acknowledgment-of-the-security-issue-vd"><bdi class="secno">3.2 </bdi>Receipt and Acknowledgment of the Security Issue (VD)</a></li><li class="tocline"><a class="tocxref" href="#verification-of-the-security-issues-vh"><bdi class="secno">3.3 </bdi>Verification of the Security Issues (VH)</a></li><li class="tocline"><a class="tocxref" href="#handling-and-resolution-development-vh"><bdi class="secno">3.4 </bdi>Handling and Resolution Development (VH)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#w3c-recommendations-published"><bdi class="secno">3.4.1 </bdi><abbr title="World Wide Web Consortium">W3C</abbr> Recommendations - Published</a></li><li class="tocline"><a class="tocxref" href="#candidate-recommendations-cr-and-working-drafts-wd-in-development"><bdi class="secno">3.4.2 </bdi>Candidate Recommendations (CR) and Working Drafts (WD) - In Development</a></li><li class="tocline"><a class="tocxref" href="#editor-s-drafts-early-stage-individual-contributions"><bdi class="secno">3.4.3 </bdi>Editor's Drafts - Early Stage/Individual Contributions</a></li><li class="tocline"><a class="tocxref" href="#discontinued-obsolete-or-rescinded-documents"><bdi class="secno">3.4.4 </bdi>Discontinued, Obsolete, or Rescinded Documents</a></li><li class="tocline"><a class="tocxref" href="#community-group-reports"><bdi class="secno">3.4.5 </bdi>Community Group Reports</a></li><li class="tocline"><a class="tocxref" href="#member-s-submissions"><bdi class="secno">3.4.6 </bdi>Member’s Submissions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#release-and-dissemination-vd"><bdi class="secno">3.5 </bdi>Release and Dissemination (VD)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#acknowledgments"><bdi class="secno">A. </bdi>Acknowledgments</a></li></ol></nav>
+                          This document is governed by the
+                          <a id="w3c_process_revision" href="https://www.w3.org/policies/process/20250818/">18 August 2025 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
+                        </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">1.1 </bdi>Overview</a></li><li class="tocline"><a class="tocxref" href="#purpose"><bdi class="secno">1.2 </bdi>Purpose</a></li></ol></li><li class="tocline"><a class="tocxref" href="#scope-and-application"><bdi class="secno">2. </bdi>Scope and Application</a></li><li class="tocline"><a class="tocxref" href="#process-and-policy"><bdi class="secno">3. </bdi>Process and Policy</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#reporting-a-vulnerability-in-a-w3c-standard"><bdi class="secno">3.1 </bdi>Reporting a Vulnerability in a <abbr title="World Wide Web Consortium">W3C</abbr> Standard</a></li><li class="tocline"><a class="tocxref" href="#receipt-and-acknowledgment-of-the-security-issue-vd"><bdi class="secno">3.2 </bdi>Receipt and Acknowledgment of the Security Issue (VD)</a></li><li class="tocline"><a class="tocxref" href="#verification-of-the-security-issues-vh"><bdi class="secno">3.3 </bdi>Verification of the Security Issues (VH)</a></li><li class="tocline"><a class="tocxref" href="#handling-and-resolution-development-vh"><bdi class="secno">3.4 </bdi>Handling and Resolution Development (VH)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#w3c-recommendations-published"><bdi class="secno">3.4.1 </bdi><abbr title="World Wide Web Consortium">W3C</abbr> Recommendations - Published</a></li><li class="tocline"><a class="tocxref" href="#candidate-recommendations-cr-and-working-drafts-wd-in-development"><bdi class="secno">3.4.2 </bdi>Candidate Recommendations (CR) and Working Drafts (WD) - In Development</a></li><li class="tocline"><a class="tocxref" href="#editor-s-drafts-early-stage-individual-contributions"><bdi class="secno">3.4.3 </bdi>Editor's Drafts - Early Stage/Individual Contributions</a></li><li class="tocline"><a class="tocxref" href="#discontinued-obsolete-or-rescinded-documents"><bdi class="secno">3.4.4 </bdi>Discontinued, Obsolete, or Rescinded Documents</a></li><li class="tocline"><a class="tocxref" href="#community-group-reports"><bdi class="secno">3.4.5 </bdi>Community Group Reports</a></li><li class="tocline"><a class="tocxref" href="#member-s-submissions"><bdi class="secno">3.4.6 </bdi>Member’s Submissions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#release-and-dissemination-vd"><bdi class="secno">3.5 </bdi>Release and Dissemination (VD)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#acknowledgments"><bdi class="secno">A. </bdi>Acknowledgments</a></li></ol></nav>
 
   <section id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div>
     
