@@ -76,6 +76,17 @@
           href: "https://www.ietf.org/process/rfcs/vulnerabilities/",
           publisher: "IETF",
           date: "2024"
+        },
+        "CVE-CNA-PARTNER": {
+          title: "How to Become a CVE Program Partner",
+          href: "https://www.cve.org/PartnerInformation/Partner",
+          publisher: "CVE Program"
+        },
+        "CNA-RULES": {
+          title: "CVE Numbering Authority (CNA) Operational Rules, version 4.1.0",
+          href: "https://www.cve.org/Resources/Roles/Cnas/CNA_Rules_v4.1.0.pdf",
+          publisher: "CVE Program",
+          date: "2025"
         }
       },
     };
@@ -135,8 +146,7 @@
     <h2>Process and Policy</h2>
     <p>W3C's response depends on the type of technical report in which the issue was found, the severity of the issue,
       and the complexity of the response. W3C will work to resolve confirmed security issues without unnecessary delay.
-      This policy is based on the recommended steps of ISO/IEC 29147 (Vulnerability Disclosure - VD) and ISO/IEC 30111
-      (Vulnerability Handling - VH).</p>
+      This policy is based on the recommended steps in [[?ISO-IEC-29147]] and [[?ISO-IEC-30111]].</p>
     <p>W3C handles and routes reports according to the type and maturity of the document in which the security issue is
       reported.</p>
     <h3>Reporting a Vulnerability in a W3C Standard</h3>
@@ -149,9 +159,10 @@
     <p>It is advisable to send encrypted messages using the PGP key to <a
         href='mailto:standards-vulnerability@w3.org'>standards-vulnerability@w3.org</a>. This email does not have a
       public archive.</p>
-    <p class="issue">The PGP key for standards-vulnerability@w3.org will be made available before publication.</p>
-    <p>To facilitate the process, your <em>advisory</em> should include details such as those recommended by ISO/IEC
-      29147 and NIST SP 800-216:</p>
+    <p class="issue">The reporting email address and PGP key will be made available before publication. In the meantime,
+      please contact <a href="mailto:simone@w3.org">simone@w3.org</a>.</p>
+    <p>To facilitate the process, your <em>advisory</em> should include details such as those recommended by
+      [[?ISO-IEC-29147]] and [[?NIST-SP-800-216]]:</p>
     <ul>
       <li><strong>The specific document</strong> in which the vulnerability is present (e.g., its title, stable URL, and
         publication date). </li>
@@ -191,7 +202,7 @@
       coordination, or authority is needed.</p>
     <p>The advisory will be handled according to the type of document to which it refers.</p>
     <h3>Handling and Resolution Development (VH)</h3>
-    <p>W3C will then coordinate with the <em>reporter</em> and the groups responsible for the affected document. In most
+    <p>The coordinator will then work with the <em>reporter</em> and the groups responsible for the affected document. In most
       cases, resolution will primarily involve updating the relevant document.</p>
     <h4>W3C Recommendations - Published</h4>
     <p>These are completed, community-reviewed standards.</p>
@@ -283,13 +294,17 @@
     <p>W3C welcomes requests to disclose your report once the vulnerability has been resolved and aims to coordinate
       public release. If the <em>reporter</em> wishes to be publicly recognized, W3C will acknowledge them for reporting
       the vulnerability, provided the reporter wishes to be publicly credited.</p>
+    <p>Published repository security advisories are listed in the <a
+        href="https://w3c.github.io/security-disclosure/advisories/index.html">public security advisory index for W3C group
+        repositories</a>.</p>
   </section>
   <section class='appendix'>
     <h2>Acknowledgments</h2>
     <p>This document is based on the <a href='https://www.ietf.org/process/rfcs/vulnerabilities/'>IETF Reporting
         Protocols Vulnerabilities</a> and <a href='https://www.w3.org/TeamSubmission/sdbp/'>W3C Security Disclosures
-        Best Practices</a>. Several individuals contributed to the document. The editor especially thanks Philippe Le
-      Hegaret, Ian Jacobs, and François Daoust.</p>
+        Best Practices</a>; the CVE Program partner requirements [[?CVE-CNA-PARTNER]] and the current CNA Operational
+      Rules [[?CNA-RULES]] were also considered. Several individuals contributed to the document. The editor especially
+      thanks Philippe Le Hegaret, Ian Jacobs, and François Daoust.</p>
   </section>
 </body>
 
